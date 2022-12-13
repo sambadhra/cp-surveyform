@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Survey Form</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 id="title" class="text-center">Codepolitan Survey Form</h1>
+            <p id="description" class="description text-center">
+                Terima kasih telah meluangkan waktu untuk membantu Kami meningkatkan platform ini
+            </p>
+        </header>
+        <form id="survey-form">
+            <div class="form-group">
+                <label id="name-label" for="name">Nama</label>
+                <input 
+                type="text"
+                name="name"
+                id="name"
+                class="form-control"
+                placeholder="masukan nama kamu"
+                required
+                >
+            </div>
+            <div class="form-group">
+                <label id="email-label" for="email">Email</label>
+                <input 
+                type="email"
+                name="email"
+                id="email"
+                class="form-control"
+                placeholder="masukan email kamu"
+                required
+                >
+            </div>
+            <div class="form-group">
+                <label id="number-label" for="number">Umur<span class="clue">(10 - 70 tahun)</span></label>
+                <input 
+                type="number"
+                name="number"
+                id="number"
+                class="form-control"
+                value="10"
+                min="10"
+                max="70"
+                placeholder="umur"
+                required
+                >
+            </div>
+            <div class="form-group">
+                <p>Yang mana diantara tersebut yang mendeskripsikan role Kamu?</p>
+                <select name="role" id="dropdown" class="form-control" required>
+                    <option disabled selected value>Pilih rolemu</option>
+                    <option value="pelajar">Pelajar</option>
+                    <option value="mahasiswa">Mahasiswa</option>
+                    <option value="karyawan full-time">Karyawan full-time</option>
+                    <option value="karyawan part-time">Karyawan part-time</option>
+                    <option value="otodidak">Otodidak</option>
+                    <option value="lain-lain">Lain-lain</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <p>Apakah Kamu akan merekomendasikan Codepolitan pada temanmu?</p>
+                <label>
+                    <input name="user-recommed" value="iya" type="radio" class="input-radio" checked>
+                    Iya
+                </label>
+                <label>
+                    <input name="user-recommed" value="mungkin" type="radio" class="input-radio">
+                    Mungkin
+                </label>
+                <label>
+                    <input name="user-recommed" value="tidak" type="radio" class="input-radio">
+                    Tidak
+                </label>
+            </div>
+            <div class="form-group">
+                <p>Fitur apa yang Kamu sukai dari Codepolitan?</p>
+                <select name="mostLike" id="most-like" class="form-control" required>
+                    <option disabled selected value>Pilih fitur</option>
+                    <option value="informasi">Informasi</option>
+                    <option value="online-course">Online Course</option>
+                    <option value="bootcamp">Bootcamp</option>
+                    <option value="komunitas">Komunitas</option>
+                    <option value="lain-lain">Lain-lain</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <p>Skill apa yang ingin Kamu kembangkan?<span class="clue">(pilih beberapa)</span></p>
+                <label>
+                    <input name="prefer" value="front-end" type="checkbox" class="input-checkbox">
+                    Front-end Developer
+                </label>
+                <label>
+                    <input name="prefer" value="back-end" type="checkbox" class="input-checkbox">
+                    Back-end Developer
+                </label>
+                <label>
+                    <input name="prefer" value="mobile" type="checkbox" class="input-checkbox">
+                    Mobile Developer
+                </label>
+                <label>
+                    <input name="prefer" value="dev-ops" type="checkbox" class="input-checkbox">
+                    Dev-Ops
+                </label>
+                <label>
+                    <input name="prefer" value="sofware-engineer" type="checkbox" class="input-checkbox">
+                    Sofware-engineer
+                </label>
+                <label>
+                    <input name="prefer" value="it-support" type="checkbox" class="input-checkbox">
+                    IT-Support
+                </label>
+                <label>
+                    <input name="prefer" value="machine-learning" type="checkbox" class="input-checkbox">
+                    Machine Learning
+                </label>
+                <label>
+                    <input name="prefer" value="iot" type="checkbox" class="input-checkbox">
+                    IOT Engineer
+                </label>
+                <label>
+                    <input name="pfr" onchange="checkAll(this)" type="checkbox" class="input-checkbox">
+                    Pilih semua
+                </label>
+            </div>
+            <div class="form-group">
+                <p>Kritik dan Saran</p>
+                <textarea name="comment" id="comment" class="input-textarea" placeholder="Apa yang harus Kami perbaiki untuk meningkatkan platform ini..." required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="submit" class="submit-button">Submit</button>
+            </div>
+        </form>
+    </div>
+    
+    <script type="text/javascript">
+        function checkAll(ele){
+            var checkboxes = document.getElementsByTagName('input')
+            if(ele.checked){
+                for (var i = 0; i < checkboxes.length; i++){
+                    if (checkboxes[i].type == 'checkbox'){
+                        checkboxes[i].checked = true
+                    }
+                }
+            } else {
+                for (var i = 0; i < checkboxes.length; i++){
+                    if (checkboxes[i].type == 'checkbox'){
+                        checkboxes[i].checked = false
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
